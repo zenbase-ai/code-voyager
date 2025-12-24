@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run voyager hook session-start",
+            "command": "voyager hook session-start",
             "timeout": 10000
           }
         ]
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run voyager hook pre-compact",
+            "command": "voyager hook pre-compact",
             "timeout": 20000
           }
         ]
@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run voyager hook session-end",
+            "command": "voyager hook session-end",
             "timeout": 20000
           }
         ]

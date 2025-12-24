@@ -56,8 +56,6 @@ Add the following hooks to your project's `.claude/settings.json`:
 }
 ```
 
-> **Note:** If you get hook errors, `voyager` may not be in Claude Code's PATH. Use the full path instead: `~/.local/bin/voyager hook ...` or run `which voyager` to find it.
-
 ### Optional: Semantic Skill Retrieval
 
 For ColBERT-based skill search, install with the retrieval extra:
