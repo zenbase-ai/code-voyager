@@ -32,11 +32,10 @@ uv tool install "git+https://github.com/zenbase-ai/code-voyager.git"
 mkdir -p .claude/skills && \
   curl -sL https://github.com/zenbase-ai/code-voyager/archive/main.tar.gz | \
   tar -xz -C .claude/skills --strip-components=3 code-voyager-main/.claude/skills/
+
 ```
 
-### Optional: Session Brain Hooks
-
-To enable persistent session memory (tracks what you're working on, decisions made, etc.), add hooks to your project's `.claude/settings.json`:
+Add the following hooks to your project's `.claude/settings.json`:
 
 ```json
 {
@@ -49,20 +48,13 @@ To enable persistent session memory (tracks what you're working on, decisions ma
     ],
     "SessionEnd": [
       {"matcher": "*", "hooks": [{"type": "command", "command": "voyager hook session-end", "timeout": 20000}]}
+    ],
+    "PostToolUse": [
+      {"matcher": "*", "hooks": [{"type": "command", "command": "voyager hook post-tool-use", "timeout": 5000}]}
     ]
   }
 }
 ```
-
-### Optional: Feedback Collection Hook
-
-Set up the PostToolUse hook to automatically collect tool execution data for skill refinement:
-
-```bash
-voyager feedback setup
-```
-
-This installs a lightweight hook into `.claude/hooks/` and updates your project settings.
 
 ### Optional: Semantic Skill Retrieval
 
@@ -178,7 +170,6 @@ Feedback-driven skill improvement through tool outcome analysis.
 
 **CLI:**
 ```bash
-voyager feedback setup                     # Install PostToolUse hook
 voyager feedback insights                  # Generate improvement recommendations
 ```
 
@@ -227,8 +218,7 @@ Fixtures are located at `.claude/fixtures/hooks/`.
 6. **Factory scaffold**: `just factory-scaffold --name test-skill --dry-run`
 7. **Skill index**: `voyager skill index --verbose`
 8. **Skill find**: `voyager skill find "resume session"`
-9. **Feedback setup**: `voyager feedback setup`
-10. **Feedback insights**: `voyager feedback insights`
+9. **Feedback insights**: `voyager feedback insights`
 
 ## Safety Guarantees
 
@@ -250,7 +240,6 @@ voyager factory scaffold          # Scaffold a skill
 voyager factory list              # List skill proposals
 voyager skill index               # Build skill index
 voyager skill find "query"        # Search skills
-voyager feedback setup            # Install feedback hook
 voyager feedback insights         # Show skill insights
 voyager hook session-start        # SessionStart hook handler
 voyager hook session-end          # SessionEnd hook handler

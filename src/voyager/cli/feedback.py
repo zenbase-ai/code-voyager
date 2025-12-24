@@ -6,32 +6,12 @@ from typing import Annotated
 import typer
 
 from voyager.scripts.feedback.insights import main as insights_main
-from voyager.scripts.feedback.setup import main as setup_main
 
 app = typer.Typer(
     name="feedback",
     help="Feedback collection and analysis",
     no_args_is_help=True,
 )
-
-
-@app.command("setup")
-def setup(
-    db: Annotated[
-        Path | None,
-        typer.Option("--db", help="Path to the feedback database"),
-    ] = None,
-    reset: Annotated[
-        bool,
-        typer.Option("--reset", help="Reset the database (deletes existing data)"),
-    ] = False,
-    dry_run: Annotated[
-        bool,
-        typer.Option("--dry-run", "-n", help="Show what would be done without changes"),
-    ] = False,
-) -> None:
-    """Initialize feedback collection for skill refinement."""
-    setup_main(db_path=db, dry_run=dry_run, reset=reset)
 
 
 @app.command("insights")

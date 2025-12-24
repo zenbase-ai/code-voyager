@@ -11,7 +11,6 @@ Provides a single entry point with subcommands organized by domain:
     voyager factory list          # List skill proposals
     voyager skill index ...       # Build skill search index
     voyager skill find ...        # Search for skills
-    voyager feedback setup ...    # Initialize feedback collection
     voyager feedback insights ... # Analyze feedback
     voyager hook session-start    # Claude Code SessionStart hook
     voyager hook session-end      # Claude Code SessionEnd hook
