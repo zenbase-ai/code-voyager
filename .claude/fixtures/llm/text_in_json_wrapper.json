@@ -1,0 +1,6 @@
+{
+  "description": "Fixture for testing text content wrapped in JSON output format",
+  "raw_output": "{\"type\": \"result\", \"result\": \"This is a plain text response from Claude.\"}",
+  "expected_data": "This is a plain text response from Claude.",
+  "expected_success": true
+}

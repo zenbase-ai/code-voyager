@@ -1,0 +1,14 @@
+{
+  "description": "Fixture for testing nested JSON objects in the response",
+  "raw_output": "{\"type\": \"result\", \"result\": \"{\\\"summary\\\": {\\\"title\\\": \\\"Test\\\", \\\"items\\\": [\\\"a\\\", \\\"b\\\", \\\"c\\\"]}, \\\"metadata\\\": {\\\"version\\\": 1}}\"}",
+  "expected_data": {
+    "summary": {
+      "title": "Test",
+      "items": ["a", "b", "c"]
+    },
+    "metadata": {
+      "version": 1
+    }
+  },
+  "expected_success": true
+}

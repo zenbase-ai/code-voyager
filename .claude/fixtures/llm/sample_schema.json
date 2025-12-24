@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": ["status", "count"],
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

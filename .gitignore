@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.ruff_cache/
+
+# Virtual environments
+.venv
+
+# Voyager dogfooding - runtime artifacts (gitignored)
+/.claude/voyager/
+/.claude/skills/local/
+/.claude/skills/generated/
+
+# Keep fixtures committed (dogfood inputs)
+!/.claude/fixtures/
+
+.DS_Store

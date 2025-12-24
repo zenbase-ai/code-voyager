@@ -1,0 +1,6 @@
+{
+  "hook_event_name": "SessionStart",
+  "session_id": "test-session-001",
+  "cwd": "/Users/knrz/Git/zenbase-ai/voyager",
+  "timestamp": "2024-12-22T12:00:00Z"
+}

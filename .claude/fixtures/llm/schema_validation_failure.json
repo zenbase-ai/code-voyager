@@ -1,0 +1,14 @@
+{
+  "description": "Fixture for testing schema validation failure",
+  "raw_output": "{\"type\": \"result\", \"result\": \"{\\\"status\\\": 123, \\\"missing_count\\\": true}\"}",
+  "schema": {
+    "type": "object",
+    "required": ["status", "count"],
+    "properties": {
+      "status": {"type": "string"},
+      "count": {"type": "integer"}
+    }
+  },
+  "expected_success": false,
+  "expected_error": "Response failed schema validation"
+}

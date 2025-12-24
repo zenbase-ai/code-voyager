@@ -1,0 +1,7 @@
+{
+  "description": "Fixture for testing invalid JSON handling",
+  "raw_output": "This is not valid JSON at all",
+  "expected_data": null,
+  "expected_success": false,
+  "expected_error": "Failed to parse JSON"
+}

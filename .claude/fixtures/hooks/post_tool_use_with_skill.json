@@ -1,0 +1,14 @@
+{
+  "session_id": "test-session-003",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/Users/test/project/.claude/voyager/brain.json",
+    "old_string": "\"status\": \"pending\"",
+    "new_string": "\"status\": \"completed\""
+  },
+  "tool_response": {
+    "success": true,
+    "lines_changed": 1
+  },
+  "transcript_path": ".claude/fixtures/transcripts/session_with_skill_read.jsonl"
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "skill_proposal.schema.json",
+  "title": "SkillProposals",
+  "description": "Collection of proposed skills extracted from patterns (v1)",
+  "type": "object",
+  "required": ["version", "proposals", "metadata"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Schema version for future migrations"
+    },
+    "proposals": {
+      "type": "array",
+      "description": "List of proposed skills",
+      "items": {
+        "$ref": "#/$defs/skill_proposal"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Proposal metadata",
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "description": "ISO timestamp when proposals were generated"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source of patterns (e.g., 'brain', 'transcript', 'curriculum')"
+        },
+        "total_proposals": {
+          "type": "integer",
+          "description": "Number of proposals generated"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "skill_proposal": {
+      "type": "object",
+      "required": ["name", "description", "triggers", "rationale", "allowed_tools"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Skill name (lowercase, hyphenated, e.g., 'pr-reviewer')"
+        },
+        "description": {
+          "type": "string",
+          "description": "One-line description of what the skill does"
+        },
+        "triggers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Natural language phrases that should trigger this skill"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Why this skill is useful (what pattern was observed)"
+        },
+        "allowed_tools": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tools this skill needs (e.g., 'Read', 'Bash', 'Write')"
+        },
+        "suggested_references": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Additional files this skill might need (scripts, schemas)"
+        },
+        "complexity": {
+          "type": "string",
+          "enum": ["simple", "moderate", "complex"],
+          "description": "How complex this skill is to implement"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Suggested priority based on frequency of pattern"
+        }
+      }
+    }
+  }
+}

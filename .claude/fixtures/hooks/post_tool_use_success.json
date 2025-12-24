@@ -1,0 +1,13 @@
+{
+  "session_id": "test-session-001",
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "/Users/test/project/src/utils.py",
+    "content": "def helper():\n    pass"
+  },
+  "tool_response": {
+    "success": true,
+    "message": "File written successfully"
+  },
+  "transcript_path": ".claude/fixtures/transcripts/session_0001.jsonl"
+}

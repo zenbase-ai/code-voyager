@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "curriculum.schema.json",
+  "title": "Curriculum",
+  "description": "Structured backlog of tasks for a codebase (v1)",
+  "type": "object",
+  "required": ["version", "goal", "tracks", "metadata"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Schema version for future migrations"
+    },
+    "goal": {
+      "type": "string",
+      "description": "High-level goal this curriculum aims to achieve"
+    },
+    "tracks": {
+      "type": "array",
+      "description": "Parallel tracks of work (e.g., 'core', 'tests', 'docs')",
+      "items": {
+        "type": "object",
+        "required": ["name", "tasks"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Track name (e.g., 'feature', 'testing', 'infrastructure')"
+          },
+          "description": {
+            "type": "string",
+            "description": "Brief description of this track's purpose"
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/task"
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Plan metadata",
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "description": "ISO timestamp when plan was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        },
+        "source_brain_session": {
+          "type": "string",
+          "description": "Session ID of brain state used to generate this plan"
+        },
+        "total_tasks": {
+          "type": "integer",
+          "description": "Total number of tasks across all tracks"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "task": {
+      "type": "object",
+      "required": ["id", "title", "why", "estimated_scope", "acceptance_criteria"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique task identifier (e.g., 't01', 't02')"
+        },
+        "title": {
+          "type": "string",
+          "description": "Short task title"
+        },
+        "why": {
+          "type": "string",
+          "description": "Rationale: why this task matters"
+        },
+        "estimated_scope": {
+          "type": "string",
+          "enum": ["trivial", "small", "medium", "large"],
+          "description": "Rough effort level"
+        },
+        "acceptance_criteria": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "How to know the task is done"
+        },
+        "suggested_files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Files likely relevant to this task"
+        },
+        "commands_to_run": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Commands to verify completion"
+        },
+        "depends_on": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "IDs of tasks this depends on"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "done", "blocked"],
+          "default": "pending",
+          "description": "Current task status"
+        }
+      }
+    }
+  }
+}

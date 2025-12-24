@@ -1,0 +1,8 @@
+{
+  "hook_event_name": "SessionEnd",
+  "session_id": "test-session-001",
+  "cwd": "/Users/knrz/Git/zenbase-ai/voyager",
+  "transcript_path": ".claude/fixtures/transcripts/sample.jsonl",
+  "timestamp": "2024-12-22T13:00:00Z",
+  "reason": "user_exit"
+}

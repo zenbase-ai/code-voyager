@@ -1,0 +1,14 @@
+{
+  "session_id": "test-session-002",
+  "tool_name": "Bash",
+  "tool_input": {
+    "command": "python3 nonexistent_script.py"
+  },
+  "tool_response": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "python3: can't open file 'nonexistent_script.py': [Errno 2] No such file or directory",
+    "error": "Command failed with exit code 1"
+  },
+  "transcript_path": null
+}

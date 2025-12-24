@@ -1,0 +1,14 @@
+{
+  "name": "code-voyager",
+  "version": "0.1.0",
+  "description": "Meta-skills for Coding Agents: persistent session memory, curriculum planning, skill generation, retrieval, and refinement.",
+  "skills": [
+    "skills/session-brain",
+    "skills/curriculum-planner",
+    "skills/skill-factory",
+    "skills/skill-retrieval",
+    "skills/skill-refinement"
+  ],
+  "hooks": "hooks/hooks.json",
+  "scripts": "scripts"
+}

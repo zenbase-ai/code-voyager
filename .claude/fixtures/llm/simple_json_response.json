@@ -1,0 +1,9 @@
+{
+  "description": "Fixture for testing simple JSON parsing from claude --output-format json",
+  "raw_output": "{\"type\": \"result\", \"result\": \"{\\\"status\\\": \\\"ok\\\", \\\"count\\\": 42}\"}",
+  "expected_data": {
+    "status": "ok",
+    "count": 42
+  },
+  "expected_success": true
+}
