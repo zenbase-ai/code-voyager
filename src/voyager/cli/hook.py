@@ -192,7 +192,7 @@ def post_tool_use() -> None:
     try:
         from voyager.refinement.detector import SkillDetector
 
-        detector = SkillDetector(use_llm=False, llm_timeout=2)
+        detector = SkillDetector(use_llm=True, llm_timeout=30)
         skill_used = detector.detect(tool_name, tool_input, transcript_path)
     except Exception:
         pass  # Skill detection is best-effort

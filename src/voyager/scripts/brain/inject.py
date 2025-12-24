@@ -185,6 +185,7 @@ def inject_from_stdin() -> dict[str, Any]:
     # Build output
     output: dict[str, Any] = {
         "hookSpecificOutput": {
+            "hookEventName": "SessionStart",
             "additionalContext": context,
         },
         "suppressOutput": True,
