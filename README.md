@@ -41,9 +41,15 @@ To enable persistent session memory (tracks what you're working on, decisions ma
 ```json
 {
   "hooks": {
-    "SessionStart": [{"matcher": {}, "hooks": [{"type": "command", "command": "voyager hook session-start", "timeout": 10000}]}],
-    "PreCompact": [{"matcher": {}, "hooks": [{"type": "command", "command": "voyager hook pre-compact", "timeout": 20000}]}],
-    "SessionEnd": [{"matcher": {}, "hooks": [{"type": "command", "command": "voyager hook session-end", "timeout": 20000}]}]
+    "SessionStart": [
+      {"matcher": "*", "hooks": [{"type": "command", "command": "voyager hook session-start", "timeout": 10000}]}
+    ],
+    "PreCompact": [
+      {"matcher": "*", "hooks": [{"type": "command", "command": "voyager hook pre-compact", "timeout": 20000}]}
+    ],
+    "SessionEnd": [
+      {"matcher": "*", "hooks": [{"type": "command", "command": "voyager hook session-end", "timeout": 20000}]}
+    ]
   }
 }
 ```
