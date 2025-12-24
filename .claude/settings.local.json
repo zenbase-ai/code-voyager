@@ -20,7 +20,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .claude/hooks/session_start.py",
+            "command": "uv run python .claude/hooks/session_start.py",
             "timeout": 10000
           }
         ]
@@ -31,7 +31,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .claude/hooks/pre_compact.py",
+            "command": "uv run python .claude/hooks/pre_compact.py",
             "timeout": 20000
           }
         ]
@@ -42,7 +42,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .claude/hooks/session_end.py",
+            "command": "uv run python .claude/hooks/session_end.py",
             "timeout": 20000
           }
         ]
@@ -54,7 +54,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/knrz/Git/zenbase-ai/voyager/.claude/hooks/post_tool_use_feedback.py'",
+            "command": "uv run python '/Users/knrz/Git/zenbase-ai/voyager/.claude/hooks/post_tool_use_feedback.py'",
             "timeout": 5000
           }
         ]

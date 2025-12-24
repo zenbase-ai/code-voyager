@@ -4,29 +4,36 @@ Meta-skills for Coding Agents: persistent session memory, curriculum planning, s
 
 ## Installation
 
-### 1. Install the Python package
+### Quick Install
 
 ```bash
-# Using uv (recommended)
-uv pip install -e .
+# 0. Install the CLI
+uv tool install "git+https://github.com/zenbase-ai/code-voyager.git"
 
-# Or with pip
-pip install -e .
-
-# For semantic skill retrieval (ColBERT), include the optional dependency:
-uv pip install -e ".[retrieval]"
+# 1. Install skills to Claude Code
+curl -sL https://github.com/zenbase-ai/code-voyager/archive/main.tar.gz | \
+  tar -xz -C ~/.claude/skills --strip-components=2 code-voyager-main/.claude/skills
 ```
 
-### 2. Install as a Claude Code plugin
+### Optional: Semantic Skill Retrieval
+
+For ColBERT-based skill search, install with the retrieval extra:
 
 ```bash
-# Add the plugin to Claude Code
-claude plugins add /path/to/voyager
+uv tool install "git+https://github.com/zenbase-ai/code-voyager.git[retrieval]"
 ```
 
-### 3. Enable hooks (optional but recommended)
+### Verify Installation
 
-Hooks automatically inject session context and persist brain state. Enable them in your Claude Code settings or use the project-local configuration.
+```bash
+# Check skills are available
+ls ~/.claude/skills/
+
+# Check CLI works (if installed)
+voyager --help
+
+# In Claude Code, ask: "What skills are available?"
+```
 
 ## Artifact Storage
 
@@ -205,3 +212,16 @@ voyager feedback insights         # Show skill insights
 ## License
 
 MIT
+
+## Acknowledgments
+
+This was inspired by the Voyager paper:
+
+```bibtex
+@article{wang2023voyager,
+  title   = {Voyager: An Open-Ended Embodied Agent with Large Language Models},
+  author  = {Guanzhi Wang and Yuqi Xie and Yunfan Jiang and Ajay Mandlekar and Chaowei Xiao and Yuke Zhu and Linxi Fan and Anima Anandkumar},
+  year    = {2023},
+  journal = {arXiv preprint arXiv: Arxiv-2305.16291}
+}
+```
